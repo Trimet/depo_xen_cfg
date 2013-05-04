@@ -172,7 +172,7 @@
 # so there is no need to specify it explicitly.
 #
 (vif-script vif-bridge)
-
+#(network-script network-bridge)
 
 ## Use the following if network traffic is routed, as an alternative to the
 # settings for bridged networking given above.

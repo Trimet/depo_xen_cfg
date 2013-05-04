@@ -9,7 +9,8 @@ iface lo inet loopback
 allow-hotplug eth0
 auto eth0
 iface eth0 inet static
-        address 192.168.194.3
+        #bridge_ports eth0
+	address 192.168.194.3
         netmask 255.255.255.0
         broadcast 192.168.194.255
         network 192.168.194.0
@@ -20,6 +21,7 @@ iface eth0 inet static
 
 allow-hotplug eth1
 auto eth1
-iface eth1 inet dhcp
-	up /etc/xen/scripts/network-bridge start bridge=xenbr1 netdev=eth1
-	up ifconfig xenbr1 up
+iface xenbr1 inet dhcp
+	#up /etc/xen/scripts/network-bridge start bridge=xenbr1 netdev=eth1
+	#up ifconfig xenbr1 up
+	bridge_ports eth1
