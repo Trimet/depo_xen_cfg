@@ -18,3 +18,8 @@ iface eth0 inet static
         up ifconfig xenbr0 up
         up route add default gw 192.168.194.16
 
+allow-hotplug eth1
+auto eth1
+iface eth1 inet dhcp
+	up /etc/xen/scripts/network-bridge start bridge=xenbr1 netdev=eth1
+	up ifconfig xenbr1 up
